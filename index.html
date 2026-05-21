@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>The Giving Shelf — Giving Books. Sharing Hope.</title>
+<meta name="description" content="The Giving Shelf is a youth-led nonprofit donating gently used books to homeless shelters across Metro Detroit. Over 2,000 books donated." />
+<meta property="og:title" content="The Giving Shelf — Giving Books. Sharing Hope." />
+<meta property="og:description" content="A youth-led nonprofit donating gently used books to homeless shelters across Metro Detroit." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='52' font-size='52'%3E📖%3C/text%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Poppins','system-ui','sans-serif'],
+          display: ['Quicksand','Poppins','sans-serif'],
+        },
+        colors: {
+          sky: { soft: '#DCEEFB', base: '#9CC9F0', deep: '#5AA8E0', ink: '#1E4E7A' },
+          sun: { soft: '#FFF7D6', base: '#FFE89A', deep: '#F4C95D' },
+          cream: '#FFFDF7',
+          ink: '#1F2A44',
+        },
+        boxShadow: {
+          soft: '0 10px 30px -12px rgba(30,78,122,.18)',
+          glow: '0 20px 60px -20px rgba(244,201,93,.55)',
+        },
+        borderRadius: { '4xl': '2rem' },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #FFFDF7; color: #1F2A44; font-family: Poppins, system-ui, sans-serif; }
+  .fade-in { animation: fade .7s ease both; }
+  @keyframes fade { from { opacity:0; transform: translateY(12px);} to {opacity:1; transform:none;} }
+  .float { animation: float 6s ease-in-out infinite; }
+  @keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-10px);} }
+  .blob { position:absolute; border-radius:50%; filter: blur(60px); opacity:.6; pointer-events:none; }
+  .nav-link.active { color:#1E4E7A; background:#DCEEFB; }
+  .page { display:none; }
+  .page.active { display:block; }
+  details[open] summary svg { transform: rotate(180deg); }
+  summary { list-style: none; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+</style>
+</head>
+<body class="antialiased">
+
+<header class="sticky top-0 z-40 backdrop-blur bg-cream/80 border-b border-sky-soft">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#/" class="flex items-center gap-2 group" data-link>
+      <span class="w-10 h-10 rounded-2xl bg-sky-soft grid place-items-center text-xl shadow-soft group-hover:rotate-6 transition">📚</span>
+      <span class="font-display font-bold text-lg text-ink">The Giving Shelf</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+      <a href="#/" data-link class="nav-link px-4 py-2 rounded-full hover:bg-sky-soft transition">Home</a>
+      <a href="#/mission" data-link class="nav-link px-4 py-2 rounded-full hover:bg-sky-soft transition">Our Mission</a>
+      <a href="#/board" data-link class="nav-link px-4 py-2 rounded-full hover:bg-sky-soft transition">Board</a>
+      <a href="#/donate" data-link class="ml-2 px-5 py-2 rounded-full bg-sun-deep text-ink font-semibold hover:bg-sun-base transition shadow-soft">Donate</a>
+    </nav>
+    <button id="menuBtn" class="md:hidden w-10 h-10 grid place-items-center rounded-xl bg-sky-soft" aria-label="Menu">☰</button>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-sky-soft bg-cream">
+    <div class="px-5 py-3 flex flex-col gap-1">
+      <a href="#/" data-link class="nav-link px-4 py-2 rounded-xl">Home</a>
+      <a href="#/mission" data-link class="nav-link px-4 py-2 rounded-xl">Our Mission</a>
+      <a href="#/board" data-link class="nav-link px-4 py-2 rounded-xl">Board</a>
+      <a href="#/donate" data-link class="nav-link px-4 py-2 rounded-xl bg-sun-deep text-ink font-semibold">Donate</a>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+
+<section data-route="/" class="page">
+  <div class="relative overflow-hidden">
+    <div class="blob bg-sky-base w-80 h-80 -top-20 -left-10"></div>
+    <div class="blob bg-sun-base w-96 h-96 -top-10 -right-20"></div>
+    <div class="relative max-w-6xl mx-auto px-5 pt-16 pb-20 md:pt-24 md:pb-28 grid md:grid-cols-2 gap-12 items-center">
+      <div class="fade-in">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-soft text-sky-ink text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-sky-deep"></span> Youth-led • Metro Detroit
+        </span>
+        <h1 class="font-display font-bold text-5xl md:text-6xl leading-tight mt-5 text-ink">
+          Giving Books. <span class="text-sky-deep">Sharing Hope.</span>
+        </h1>
+        <p class="mt-5 text-lg text-ink/70 max-w-lg">
+          Over <strong class="text-ink">2,000 books</strong> donated to homeless shelters across Metro Detroit — one chapter of comfort at a time.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#/donate" data-link class="px-6 py-3 rounded-full bg-sun-deep text-ink font-semibold shadow-glow hover:translate-y-[-2px] transition">Support Our Mission →</a>
+          <a href="#/mission" data-link class="px-6 py-3 rounded-full bg-white border border-sky-soft text-ink font-semibold hover:bg-sky-soft transition">Our Story</a>
+        </div>
+      </div>
+
+      <div class="relative">
+        <div class="float relative mx-auto w-72 h-80 md:w-80 md:h-96">
+          <div class="absolute inset-0 rounded-4xl bg-sky-soft rotate-6"></div>
+          <div class="absolute inset-0 rounded-4xl bg-sun-soft -rotate-3"></div>
+          <div class="absolute inset-0 rounded-4xl bg-white shadow-soft grid place-items-center">
+            <div class="text-center px-6">
+              <div class="text-7xl">📖</div>
+              <p class="font-display font-bold text-xl mt-3 text-ink">A second life<br/>for every book.</p>
+              <div class="mt-4 flex justify-center gap-1 text-2xl">📕📗📘📙</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-5 py-16 text-center">
+    <h2 class="font-display font-bold text-3xl md:text-4xl text-ink">What we do</h2>
+    <p class="mt-4 text-lg text-ink/70">
+      The Giving Shelf is a youth-led nonprofit that collects gently used books from teachers, libraries, and community members — then places them into the hands of people experiencing homelessness across Metro Detroit. Because reading is comfort, education, and hope, and everyone deserves access to it.
+    </p>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-5 pb-20 grid md:grid-cols-3 gap-5">
+    <div class="rounded-4xl bg-sky-soft p-8 shadow-soft">
+      <div class="text-5xl font-display font-bold text-sky-ink">2,000+</div>
+      <p class="mt-2 font-semibold text-ink">Books Donated</p>
+      <p class="text-sm text-ink/60 mt-1">And growing every month.</p>
+    </div>
+    <div class="rounded-4xl bg-sun-soft p-8 shadow-soft">
+      <div class="text-3xl font-display font-bold text-ink leading-tight">Metro Detroit<br/>Partners</div>
+      <ul class="mt-3 text-sm text-ink/70 space-y-1">
+        <li>• Covenant House Michigan</li>
+        <li>• Cass Community Social Services</li>
+        <li>• Detroit Rescue Mission Ministries</li>
+        <li>• …and more</li>
+      </ul>
+    </div>
+    <div class="rounded-4xl bg-white border border-sky-soft p-8 shadow-soft">
+      <div class="text-5xl">🤝</div>
+      <p class="mt-3 font-display font-bold text-2xl text-ink">Community-Powered</p>
+      <p class="text-sm text-ink/60 mt-1">Every donation comes from neighbors, teachers, and libraries like yours.</p>
+    </div>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-5 pb-24">
+    <div class="rounded-4xl bg-gradient-to-br from-sky-soft via-white to-sun-soft p-10 md:p-14 text-center shadow-soft">
+      <h3 class="font-display font-bold text-3xl md:text-4xl text-ink">Have books to share?</h3>
+      <p class="mt-3 text-ink/70 max-w-xl mx-auto">Pass them along. We'll make sure they find a reader who needs them.</p>
+      <a href="#/donate" data-link class="inline-block mt-6 px-6 py-3 rounded-full bg-sky-deep text-white font-semibold hover:bg-sky-ink transition">Donate Books →</a>
+    </div>
+  </div>
+</section>
+
+<section data-route="/mission" class="page">
+  <div class="max-w-4xl mx-auto px-5 py-16 md:py-24">
+    <span class="text-sky-deep font-semibold text-sm tracking-wide uppercase">Our Mission</span>
+    <h1 class="font-display font-bold text-4xl md:text-5xl mt-3 text-ink">Books deserve a second life. People deserve a story.</h1>
+    <p class="mt-6 text-lg text-ink/70">
+      The Giving Shelf exists to give books a second life — by collecting used books from the community and placing them into the hands of people in homeless shelters. We believe books provide comfort, education, and hope, and that everyone deserves access to reading materials regardless of their circumstances.
+    </p>
+
+    <div class="mt-12 grid md:grid-cols-2 gap-5">
+      <div class="rounded-4xl bg-sky-soft p-7 shadow-soft">
+        <div class="text-3xl">📖</div>
+        <h3 class="font-display font-bold text-xl mt-3 text-ink">Why books matter</h3>
+        <p class="text-sm text-ink/70 mt-2">A book is a quiet companion. It offers escape, learning, and the dignity of choosing what you read. For someone navigating hardship, that small autonomy can mean everything.</p>
+      </div>
+      <div class="rounded-4xl bg-sun-soft p-7 shadow-soft">
+        <div class="text-3xl">🧺</div>
+        <h3 class="font-display font-bold text-xl mt-3 text-ink">How we collect</h3>
+        <p class="text-sm text-ink/70 mt-2">We partner mainly with community members, plus teachers and libraries clearing shelves. Gently used books of every genre — fiction, non-fiction, kids' titles, poetry — all welcome.</p>
+      </div>
+      <div class="rounded-4xl bg-white border border-sky-soft p-7 shadow-soft">
+        <div class="text-3xl">🚚</div>
+        <h3 class="font-display font-bold text-xl mt-3 text-ink">How we distribute</h3>
+        <p class="text-sm text-ink/70 mt-2">Donations are sorted, then delivered directly to shelters and outreach organizations across Detroit — including Covenant House Michigan, Cass Community Social Services, and Detroit Rescue Mission Ministries.</p>
+      </div>
+      <div class="rounded-4xl bg-gradient-to-br from-sun-soft to-sky-soft p-7 shadow-soft">
+        <div class="text-3xl">🌱</div>
+        <h3 class="font-display font-bold text-xl mt-3 text-ink">Youth-led, community-fueled</h3>
+        <p class="text-sm text-ink/70 mt-2">Run by young volunteers who believe small acts compound into real change. Every drop-off, every shelf, every reader — it all adds up.</p>
+      </div>
+    </div>
+
+    <div class="mt-14 rounded-4xl bg-ink text-cream p-10 text-center shadow-soft">
+      <p class="font-display text-2xl md:text-3xl leading-snug">"A book in the right hands can change a day — or a life."</p>
+      <a href="#/donate" data-link class="inline-block mt-6 px-6 py-3 rounded-full bg-sun-deep text-ink font-semibold hover:bg-sun-base transition">Join the mission</a>
+    </div>
+  </div>
+</section>
+
+<section data-route="/board" class="page">
+  <div class="max-w-6xl mx-auto px-5 py-16 md:py-24">
+    <div class="text-center max-w-2xl mx-auto">
+      <span class="text-sky-deep font-semibold text-sm tracking-wide uppercase">Our Board</span>
+      <h1 class="font-display font-bold text-4xl md:text-5xl mt-3 text-ink">The people behind the shelves.</h1>
+      <p class="mt-4 text-ink/70">A small team of students and volunteers keeping books moving across Metro Detroit.</p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-6" id="boardGrid"></div>
+  </div>
+</section>
+
+<section data-route="/donate" class="page">
+  <div class="max-w-4xl mx-auto px-5 py-16 md:py-24">
+    <div class="text-center">
+      <span class="text-sky-deep font-semibold text-sm tracking-wide uppercase">Donate</span>
+      <h1 class="font-display font-bold text-4xl md:text-5xl mt-3 text-ink">Give a book. Share a little hope.</h1>
+      <p class="mt-4 text-lg text-ink/70 max-w-2xl mx-auto">
+        Whether you have one beloved paperback or a whole shelf to clear, your books will land in the hands of someone who needs them.
+      </p>
+      <a href="#" id="donateFormLink"
+         class="inline-block mt-8 px-8 py-4 rounded-full bg-sun-deep text-ink text-lg font-semibold shadow-glow hover:translate-y-[-2px] transition">
+        Donation Form Coming Soon
+      </a>
+      <p class="text-xs text-ink/50 mt-3">(Google Form link coming soon)</p>
+    </div>
+
+    <div class="mt-16 rounded-4xl bg-sky-soft p-8 md:p-10 shadow-soft">
+      <h2 class="font-display font-bold text-2xl text-ink">Contact us to donate</h2>
+      <p class="text-ink/70 mt-2">Prefer to reach out directly? We're happy to coordinate.</p>
+      <div class="mt-6 grid sm:grid-cols-2 gap-4">
+        <a href="mailto:the.givingshelf1@gmail.com" class="flex items-center gap-3 p-4 rounded-2xl bg-white hover:shadow-soft transition">
+          <span class="w-10 h-10 rounded-xl bg-sun-soft grid place-items-center">✉️</span>
+          <div>
+            <div class="text-xs text-ink/50">Email</div>
+            <div class="font-semibold text-ink">the.givingshelf1@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/the_giving_shelf_/" target="_blank" rel="noopener" class="flex items-center gap-3 p-4 rounded-2xl bg-white hover:shadow-soft transition">
+          <span class="w-10 h-10 rounded-xl bg-sun-soft grid place-items-center">📷</span>
+          <div>
+            <div class="text-xs text-ink/50">Instagram</div>
+            <div class="font-semibold text-ink">@the_giving_shelf_</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <h2 class="font-display font-bold text-2xl text-ink">Frequently asked</h2>
+      <div class="mt-5 space-y-3" id="faq"></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="mt-10 border-t border-sky-soft bg-cream">
+  <div class="max-w-6xl mx-auto px-5 py-12 grid md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-2">
+        <span class="w-10 h-10 rounded-2xl bg-sky-soft grid place-items-center text-xl">📚</span>
+        <span class="font-display font-bold text-lg text-ink">The Giving Shelf</span>
+      </div>
+      <p class="text-sm text-ink/60 mt-3 max-w-xs">A youth-led nonprofit giving books a second life across Metro Detroit.</p>
+    </div>
+
+    <div>
+      <div class="text-xs uppercase tracking-wide text-ink/50 font-semibold">Explore</div>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li><a href="#/" data-link class="hover:text-sky-deep">Home</a></li>
+        <li><a href="#/mission" data-link class="hover:text-sky-deep">Our Mission</a></li>
+        <li><a href="#/board" data-link class="hover:text-sky-deep">Board</a></li>
+        <li><a href="#/donate" data-link class="hover:text-sky-deep">Donate</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="text-xs uppercase tracking-wide text-ink/50 font-semibold">Connect</div>
+      <p class="mt-3 text-sm">
+        <a href="mailto:the.givingshelf1@gmail.com" class="hover:text-sky-deep">the.givingshelf1@gmail.com</a>
+      </p>
+      <div class="mt-3 flex gap-2">
+        <a href="https://www.instagram.com/the_giving_shelf_/" target="_blank" rel="noopener" aria-label="Instagram" class="w-9 h-9 grid place-items-center rounded-xl bg-sky-soft hover:bg-sun-soft transition">📷</a>
+        <a href="mailto:the.givingshelf1@gmail.com" aria-label="Email" class="w-9 h-9 grid place-items-center rounded-xl bg-sky-soft hover:bg-sun-soft transition">✉️</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="border-t border-sky-soft">
+    <div class="max-w-6xl mx-auto px-5 py-5 text-xs text-ink/50 flex justify-between flex-wrap gap-2">
+      <span>© <span id="yr"></span> The Giving Shelf. All rights reserved.</span>
+      <span>Made with care in Metro Detroit.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  const board = [
+    {
+      name: 'Zain Atif',
+      role: 'President',
+      bio: "I'm a student at Salem High School (C/O 27), wanting to help the less privileged. I like purple."
+    },
+    {
+      name: 'Raj Patel',
+      role: 'Co-President',
+      bio: "I'm a student at Salem High School (C/O 27), passionate about donating books and helping others. Fun fact: I love discovering new music."
+    },
+    {
+      name: 'Aryan Chaoji',
+      role: 'Vice President / Webmaster',
+      bio: "I'm a student at Canton High School (C/O 28), passionate about making a change. My favorite food spot is Chipotle."
+    },
+    {
+      name: 'Calvin Soderquist',
+      role: 'Lead of Logistics & Partnerships',
+      bio: "I'm a student at Salem High School (C/O 27), passionate about donating and supporting the community. Fun fact: I like playing basketball."
+    },
+  ];
+
+  const palettes = ['bg-sky-soft','bg-sun-soft','bg-sky-soft','bg-sun-soft'];
+
+  document.getElementById('boardGrid').innerHTML = board.map((b,i)=>`
+    <div class="group">
+      <div class="aspect-[2/3] rounded-3xl ${palettes[i]} shadow-soft overflow-hidden grid place-items-center relative">
+        <div class="text-6xl opacity-60 group-hover:scale-110 transition">👤</div>
+        <span class="absolute bottom-3 left-3 text-[10px] uppercase tracking-wider bg-white/80 px-2 py-1 rounded-full text-ink/60">Photo soon</span>
+      </div>
+      <h3 class="font-display font-bold text-lg mt-4 text-ink">${b.name}</h3>
+      <p class="text-sm text-sky-deep font-medium">${b.role}</p>
+      <p class="text-sm text-ink/60 mt-2">${b.bio}</p>
+    </div>
+  `).join('');
+
+  const faqs = [
+    { q: 'What kinds of books do you accept?', a: 'Gently used books of any genre — fiction, non-fiction, children\'s books, poetry, cookbooks. We ask that books be clean, intact, and free of heavy writing or damage.' },
+    { q: 'What can\'t you accept?', a: 'Textbooks more than a few years old, encyclopedias, magazines, or books with mold, water damage, or missing pages.' },
+    { q: 'How do drop-offs work?', a: 'Our donation form link is coming soon. For now, email us or message us on Instagram and we\'ll coordinate a pickup or drop-off location convenient for you in Metro Detroit.' },
+    { q: 'Can my school or library partner with you?', a: 'Yes! We love working with teachers and libraries clearing shelves. Email us and we\'ll set up a regular collection.' },
+  ];
+
+  document.getElementById('faq').innerHTML = faqs.map(f=>`
+    <details class="rounded-2xl bg-white border border-sky-soft p-5 shadow-soft">
+      <summary class="flex justify-between items-center font-semibold text-ink">
+        <span>${f.q}</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="transition"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <p class="mt-3 text-sm text-ink/70">${f.a}</p>
+    </details>
+  `).join('');
+
+  function route() {
+    const hash = location.hash.replace('#','') || '/';
+
+    document.querySelectorAll('.page').forEach(p => {
+      p.classList.toggle('active', p.dataset.route === hash);
+    });
+
+    document.querySelectorAll('.nav-link').forEach(a => {
+      const target = a.getAttribute('href').replace('#','');
+      a.classList.toggle('active', target === hash);
+    });
+
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    document.getElementById('mobileMenu').classList.add('hidden');
+
+    const titles = {
+      '/':'The Giving Shelf — Giving Books. Sharing Hope.',
+      '/mission':'Our Mission — The Giving Shelf',
+      '/board':'Our Board — The Giving Shelf',
+      '/donate':'Donate — The Giving Shelf'
+    };
+
+    document.title = titles[hash] || titles['/'];
+  }
+
+  window.addEventListener('hashchange', route);
+  route();
+
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('hidden');
+  });
+</script>
+
+</body>
+</html>
